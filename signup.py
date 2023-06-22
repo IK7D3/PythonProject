@@ -1,0 +1,62 @@
+#d
+name = []
+userName = []
+passWord = []
+i = 0
+
+
+def SignUp(i):
+    name1 = input("Enter your name:\t\n")
+    name.append(name1)
+
+    while 1 == 1:
+        x = False
+        username = input("Enter your username:\t")
+        for j in range(i):
+            if (userName[j] == username):
+                print("This username is available\n"
+                      "Enter another username!\n")
+                x = True
+                break
+        if (x == True):
+            continue
+        else:
+            userName.append(username)
+            i = i + 1
+            break
+
+    while 1 == 1:
+        x = False
+        password = input("Enter your password:\t\n")
+        m = 0
+        if (len(password) > 8):
+            m = m + 1
+        if (password.count('.') > 0 or password.count('*') > 0 or password.count('&') > 0 or password.count(
+                '$') > 0 or password.count('#') > 0 or password.count('@') > 0 or password.count('!') > 0):
+            m = m + 1
+        if (password.count('0') > 0 or password.count('1') > 0 or password.count('2') > 0 or password.count(
+                '3') > 0 or password.count('4') > 0 or password.count('5') > 0 or password.count('6') > 0
+                or password.count('7') > 0 or password.count('8') > 0 or password.count('9') > 0):
+            m = m + 1
+
+        has_upper = False
+        has_lower = False
+        for char in password:
+            if char.isupper():
+                has_upper = True
+                m = m + 1
+                break
+        for char in password:
+            if char.islower():
+                has_lower = True
+                m = m + 1
+                break
+
+        if (m == 5):
+            passWord.append(password)
+            break
+        else:
+            print("invalid password!\n"
+                  "Enter another password!\n")
+            continue
+
